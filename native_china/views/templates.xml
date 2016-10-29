@@ -1,0 +1,13 @@
+<openerp>
+    <data>
+		
+		<template id="power_by_mfs" inherit_id="web.menu_secondary" name="Power by mfs">
+		<xpath expr="//div[2]" position="replace">
+            <div class="oe_footer">
+                Powered by <a href="http://www.mfsystem.org" target="_blank"><span>mfs</span></a>
+            </div>		  
+		</xpath>
+		</template>
+		 
+    </data>
+</openerp>

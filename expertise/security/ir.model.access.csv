@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+auditor_expertise_expertise,auditor.expertise.expertise,model_expertise_expertise,auditor_expertise,1,0,1,0
+supervisor_expertise_expertise,supervisor.expertise.expertise,model_expertise_expertise,supervisor_expertise,1,1,1,1
+preside_expertise_expertise,preside.expertise.expertise,model_expertise_expertise,preside_expertise,1,1,1,0

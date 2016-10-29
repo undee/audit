@@ -1,0 +1,236 @@
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="inside_audit.list">
+      <field name="name">inside audit list</field>
+      <field name="model">inside_audit</field>
+      <field name="arch" type="xml">
+        <tree decoration-info="state=='information'"
+    		  decoration-muted="state=='decide'"
+    		  decoration-prinmary="state=='evaluation'">
+        
+        <field name="name"/>
+        <field name="state"/>
+        
+        </tree>
+      </field>
+    </record>  
+  
+    <!-- explicit form view definition -->
+    
+    <record model="ir.ui.view" id="inside_audit.form">
+      <field name="name">inside audit form</field>
+      <field name="model">inside_audit</field>
+      <field name="arch" type="xml">
+        <form>
+        
+    <header>
+        <button string="decide" type="object" name="action_decide"
+                states="information" class="oe_highlight" />
+        <button string="Evaluation" type="object" name="action_evaluation"
+                states="decide" class="oe_highlight" /> 
+        <button string="Reset to information" type="object" name="action_information"
+                states="evaluation,decide" />
+        <field name="state" widget="statusbar"/>
+    </header>        
+        
+        <sheet>
+        
+        <group>
+        <div><label for="name"/><field name="name"/></div>
+        <div><field name="active"/>
+        <label for="active"/>
+        </div>
+        </group>
+        
+        <notebook>
+        
+        <page   string="内部审计基本信息">        
+        
+        <div>
+        <label for="information"/> 
+        <field name="information"/>        
+        </div>
+        <separator />
+        <div>
+        <field name="yesorno"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="yesorno"/> 
+        </div>
+        <separator />
+        <div>
+        <field name="relativity"/>
+        <span style="margin-right:5px;"></span>
+        <label for="relativity"/>    
+        </div>    
+        
+        </page>
+        
+        <page  string="确定是否利用内部审计人员工作">  
+        
+        <div>
+        <field name="objectivity"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="objectivity"/>
+        </div>
+        <separator />
+        <div>
+        <label for="objectivity_description"/> 
+        <field name="objectivity_description"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <field name="ability"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="ability"/>
+        </div>
+        <separator />
+        <div>
+        <label for="ability_description"/> 
+        <field name="ability_description"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <field name="attention"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="attention"/>
+        </div>
+        <separator />
+        <div>
+        <label for="attention_description"/> 
+        <field name="attention_description"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <field name="communication"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="communication"/>
+        </div>
+        <separator />
+        <div>
+        <label for="communication_description"/> 
+        <field name="communication_description"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <label for="affect"/> 
+        <field name="affect"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <label for="rmm"/> 
+        <field name="rmm"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <label for="subjectivity"/> 
+        <field name="subjectivity"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <field name="accept"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="accept"/>
+        </div> 
+        
+        </page>
+         
+        <page string="对内部审计工作进行评价"> 
+        
+        <div>
+        <field name="abilitytwo"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="abilitytwo"/>
+        </div>
+        <separator />
+        <div>
+        <label for="abilitytwo_description"/> 
+        <field name="abilitytwo_description"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <field name="monitor"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="monitor"/>
+        </div>
+        <separator />
+        <div>
+        <label for="monitor_description"/> 
+        <field name="monitor_description"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <field name="evidence"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="evidence"/>
+        </div>
+        <separator />
+        <div>
+        <label for="evidence_description"/> 
+        <field name="evidence_description"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <field name="conclusion"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="conclusion"/>
+        </div>
+        <separator />
+        <div>
+        <label for="conclusion_description"/> 
+        <field name="conclusion_description"/>        
+        </div>
+        <separator />
+        
+        <div>
+        <label for="attachment" string="在这里可以上传下载清除与利用内部审计工作相关的电子文件"/> 
+        <separator />
+        <field name="attachment"/>        
+        </div>
+        
+        </page>  
+         
+        </notebook>
+        
+        </sheet>
+        
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+        
+        </form>
+      </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="inside_audit.action_window">
+      <field name="name">inside audit work</field>
+      <field name="res_model">inside_audit</field>
+      <field name="view_mode">tree,form</field>
+    </record>   
+    
+
+    <!-- menu categories -->
+    
+    <!-- <menuitem name="inside audit" id="inside_audit.menu_1" parent="audit.menu_root"/> -->
+     
+    <!-- actions -->
+    
+    <menuitem name="Inside audit" id="inside_audit.menu_1_form" parent="audit.menu_root"
+              action="inside_audit.action_window"/>
+              
+  </data>
+</openerp>

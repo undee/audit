@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo><data>
+        <!-- 
+		<record id="auditor_only_draft" model="ir.rule">
+		    <field name="name">Only draft expertise auditor may be viewed</field>
+		    <field name="model_id" ref="model_expertise_expertise"/>
+		    <field name="groups" eval="[(4, ref('auditor_expertise'))]"/>
+		    <field name="perm_read" eval="1"/>
+		    <field name="perm_write" eval="0"/>
+		    <field name="perm_create" eval="0"/>
+		    <field name="perm_unlink" eval="0" />
+		    <field name="domain_force">[('state','=','draft')]</field>
+		</record>   		    
+ 		-->
+</data></odoo>

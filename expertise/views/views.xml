@@ -1,0 +1,155 @@
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="expertise.list">
+      <field name="name">expertise list</field>
+      <field name="model">expertise.expertise</field>
+      <field name="arch" type="xml">
+        <tree decoration-info="state=='draft'"
+    		  decoration-muted="state=='waite'"
+    		  decoration-prinmary="state=='agreement'"
+    		  decoration-warning="state=='evaluation'"
+    		  decoration-danger="state=='report'"
+    		  decoration-success="state=='done'">
+        
+        <field name="name"/>
+        <field name="state"/>
+        
+        </tree>
+      </field>
+    </record>  
+  
+    <!-- explicit form view definition -->
+    
+    <record model="ir.ui.view" id="expertise.form">
+      <field name="name">expertise form</field>
+      <field name="model">expertise.expertise</field>
+      <field name="arch" type="xml">
+        <form>
+        
+    <header>
+        <button string="Accept" type="object" name="action_accept"
+                states="draft" class="oe_highlight" />
+        <button string="Agreement" type="object" name="action_agreement"
+                states="waite" class="oe_highlight" />    
+        <button string="Evaluation" type="object" name="action_evaluation"
+                states="agreement" class="oe_highlight" />   
+        <button string="Report" type="object" name="action_report"
+                states="evaluation" class="oe_highlight" />   
+        <button string="Mark as done" type="object" name="action_done"
+                states="report" class="oe_highlight"/> 
+        <button string="Reset to agreement" type="object" name="action_agreement"
+                states="evaluation,report,done" />
+        <field name="state" widget="statusbar"/>
+    </header>        
+        
+        <sheet>
+        <group>
+        <field name="name"/>
+        </group>
+        <group>
+        <field name="active"/>
+        </group>
+        
+        <notebook>
+        
+        <page   string="提出请求">        
+        
+        <field name="reason"/>
+        
+        </page>
+        
+        <page  string="确定是否利用专家工作">        
+        
+        <label for="nature_of_matter" string="需要利用专家工作的事项的性质"/>
+        <field name="nature_of_matter"/>
+        <label for="RMM" string="需要利用专家工作的事项的重大错报风险的评估结果"/>        
+        <field name="RMM"/>
+        <label for="IWE" string="专家工作的对获取审计证据的重要性"/>          
+        <field name="IWE"/>
+        <label for="understand" string="对专家的了解与经验"/>           
+        <field name="understand"/>
+        <label for="rule" string="专家对质量政策与程序的遵守要求"/>         
+        <field name="rule"/>
+        
+        </page>
+        
+        <page string="书面协议">        
+        
+        <field name="agreement_done"/>
+        <field name="agreement"/>
+        
+        </page>       
+         
+        <page string="对专家工作成果进行评估">  
+        <div>
+        <field name="expert_result"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="expert_result"/>
+        </div>
+        <div>
+        <field name="relativity" class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="relativity"/>        
+        </div>
+        <div>
+        <field name="evidence_consistency" class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="evidence_consistency"/> 
+        </div>
+        <div>
+        <field name="evidence_method_hypothesis" class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="evidence_method_hypothesis"/> 
+        </div> 
+        <div>
+        <field name="original_data"  class="oe_inline"/>
+        <span style="margin-right:5px;"></span>
+        <label for="original_data"/>        
+        </div>        
+        </page>     
+        
+        <page  string="在报告中提及专家工作">
+        <sheet>
+        <label for="report_type" string="报告类型"/>
+        <field name="report_type"></field>    
+        <p></p>    
+        <label for="report_words" string="报告措词"/>
+        <field name="report_words"></field>
+        </sheet>
+        </page>            
+         
+        </notebook>
+        
+        </sheet>
+        
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+        
+        </form>
+      </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="expertise.action_window">
+      <field name="name">expertise work</field>
+      <field name="res_model">expertise.expertise</field>
+      <field name="view_mode">tree,form</field>
+    </record>   
+
+    
+    <!-- menu categories -->
+     
+    <!-- <menuitem name="Expertise" id="expertise.menu_1" parent="audit.menu_root"/> -->
+     
+    <!-- actions -->
+    
+    <menuitem name="Expertise" id="expertise.menu_1_form" parent="audit.menu_root"
+              action="expertise.action_window"/>
+    
+  </data>
+</openerp>

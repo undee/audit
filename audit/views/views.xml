@@ -1,0 +1,9 @@
+<openerp>
+  <data>
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Audit" id="audit.menu_root"/>         
+    
+  </data>
+</openerp>

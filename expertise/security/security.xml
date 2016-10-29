@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+    
+        <record id="auditor_expertise" model="res.groups">
+            <field name="name">Auditor/Expertise</field>
+        </record>
+        <record id="supervisor_expertise" model="res.groups">
+            <field name="name">Supervisor/Expertise</field>
+        </record>
+        <record id="preside_expertise" model="res.groups">
+            <field name="name">Preside/Expertise</field>
+        </record>        
+                     
+    </data>
+</openerp>
