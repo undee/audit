@@ -7,6 +7,6 @@
 
 1.安装Odoo
 
-2.安装expert和inside_aduit模块
+2.安装expertise和inside_aduit模块
 
 3.体验一下

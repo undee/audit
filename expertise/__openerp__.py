@@ -23,7 +23,7 @@
 如何使用
 -----------
 
-    * Tools/Expertise/Expertise
+    * Audit/Expertise
     """,
 
     'author': "Mfs Company",
