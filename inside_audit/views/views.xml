@@ -45,7 +45,7 @@
         
         <notebook>
         
-        <page   string="内部审计基本信息">        
+        <page   string="内部审计基本信息"   attrs="{'invisible': [('state', 'not in', ('information','decide','evaluation'))]}">        
         
         <div>
         <label for="information"/> 
@@ -66,7 +66,7 @@
         
         </page>
         
-        <page  string="确定是否利用内部审计人员工作">  
+        <page  string="确定是否利用内部审计人员工作"  attrs="{'invisible': [('state', 'not in', ('decide','evaluation'))]}">  
         
         <div>
         <field name="objectivity"  class="oe_inline"/>
@@ -142,7 +142,7 @@
         
         </page>
          
-        <page string="对内部审计工作进行评价"> 
+        <page string="对内部审计工作进行评价"    attrs="{'invisible': [('state', 'not in', ('evaluation'))]}"> 
         
         <div>
         <field name="abilitytwo"  class="oe_inline"/>
