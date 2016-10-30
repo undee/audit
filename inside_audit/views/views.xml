@@ -228,7 +228,7 @@
     <!-- <menuitem name="inside audit" id="inside_audit.menu_1" parent="audit.menu_root"/> -->
      
     <!-- actions -->
-    
+        
     <menuitem name="Inside audit" id="inside_audit.menu_1_form" parent="audit.menu_root"
               action="inside_audit.action_window"/>
               
