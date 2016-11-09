@@ -8,7 +8,7 @@
 
     'description': """
 利用专家的工作来获取必要的审计证据
-==============================
+======================================
 
 主要程序
 -------------
@@ -26,7 +26,7 @@
     * Audit/Expertise
     """,
 
-    'author': "Mfs Company",
+    'author': "undee",
     'website': "http://www.mfsystem.org",
 
     # Categories can be used to filter modules in modules listing
@@ -36,7 +36,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','native_china','audit'],
+    'depends': ['native_china','audit','bi'],
 
     # always loaded
     'data': [

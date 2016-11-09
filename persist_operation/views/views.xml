@@ -1,0 +1,288 @@
+<openerp>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="persist_operation.list">
+      <field name="name">persist_operation list</field>
+      <field name="model">persist_operation</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+    
+    <!-- explicit form view definition -->
+    
+    <record model="ir.ui.view" id="persist_operation.form">
+      <field name="name">persist operation form</field>
+      <field name="model">persist_operation</field>
+      <field name="arch" type="xml">
+	      <form>
+	      
+		    <header>
+		        <button string="Done" type="object" name="action_done"
+		                states="executory" class="oe_highlight" />
+		        <button string="Reset to executory" type="object" name="action_executory"
+		                states="done" />
+		        <field name="state" widget="statusbar"/>
+		    </header>       
+	        <sheet>
+	        
+	        <group>
+	        <group>
+	        <field name="name"/>
+	        </group>
+	        <group>
+	        <field name="active"/>
+	        </group>
+	        </group>
+	        
+        <notebook>
+        
+        <page   string="初步评价">        
+        
+        <separator string="" colspan="4"/>   
+        
+        <label for="preliminary_estimate" string="管理层是否就持续经营能力进行初步评估"/>
+        
+        <field name="preliminary_estimate"  />
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="branch_manager_with_discuss" string="与管理层讨论其拟运用的持续经营假设的基础"    attrs="{'invisible': [('preliminary_estimate', '=',(True))]}"/>
+        
+        <field name="branch_manager_with_discuss"     attrs="{'invisible': [('preliminary_estimate', '=',(True))]}"/>
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="branch_manager_inquiry" string="询问管理层是否存在可能导致对持续经营能力产生重大疑虑的事项或情况"    attrs="{'invisible': [('preliminary_estimate', '=',(True))]}"/>
+        
+        <field name="branch_manager_inquiry"     attrs="{'invisible': [('preliminary_estimate', '=',True)]}"/>
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="preliminary_estimate_information" string="管理层就持续经营能力进行的初步评估信息"     attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>
+        
+        <field name="preliminary_estimate_information"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>   
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="discuss1" string="与管理层讨论持续经营能力"     attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>
+        
+        <field name="discuss1"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>          
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="exist_case_affect_persist_operation" string="管理层是否识别出对持续经营能力产生重大疑虑的事项或情况"     attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>
+        
+        <field name="exist_case_affect_persist_operation"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>             
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="case_affect_persist_operation" string="管理层识别出对持续经营能力产生重大疑虑的事项或情况"     attrs="{'invisible': [('exist_case_affect_persist_operation', '=',False)]}"/>
+        
+        <field name="case_affect_persist_operation"      attrs="{'invisible': [('exist_case_affect_persist_operation', '=',False)]}"/>    
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="reply_to_case" string="与管理层就其识别出对持续经营能力产生重大疑虑的事项或情况的应对计划进行讨论"     attrs="{'invisible': [('exist_case_affect_persist_operation', '=',False)]}"/>
+        
+        <field name="reply_to_case"      attrs="{'invisible': [('exist_case_affect_persist_operation', '=',False)]}"/>     
+		
+		<separator string="" colspan="4"/>        
+		
+        <group  string="期间一致性"    attrs="{'invisible': [('preliminary_estimate', '=',False)]}">        
+        
+        <group   string='管理层评估期间' >
+        
+        <group>
+        
+        <!-- <label for="manager_evaluate_period_begin" string="管理层评估期间起点"/> -->
+        
+        <field name="manager_evaluate_period_begin" />
+        
+        </group>
+        
+        <group>
+        
+       <!--  <label for="manager_evaluate_period_end" string="管理层评估期间终点"/> -->
+        
+        <field name="manager_evaluate_period_end" />      
+        
+        </group>
+        
+        </group>
+         
+        
+        
+        <!-- 注册会计师评估期间起终点 -->        
+        
+        <separator string="" colspan="4"/>   
+        
+        <group     string="注册会计师评估期间" >                
+      
+        <group>
+        
+        <!-- <label for="cpa_evaluate_period_begin" string="注册会计师评估期间起点"/> -->
+        
+        <field name="cpa_evaluate_period_begin" />
+        
+        </group>
+        
+        <group>
+        
+<!--         <label for="cpa_evaluate_period_end" string="注册会计师评估期间终点"/> -->
+        
+        <field name="cpa_evaluate_period_end" />      
+        
+        </group>
+         
+        </group>  
+        
+        </group>
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="evaluate_period_same" string="CPA评价期间与管理层对持续经营能力的评估期间是否一致"     attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>
+        
+        <field name="evaluate_period_same"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>      
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="evaluate_period_more_than" string="管理层评价持续经营能力的涵盖期间是否大于12个月"     attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>
+        
+        <field name="evaluate_period_more_than"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>    
+        
+        <separator string="" colspan="4"/>
+        
+        <group    string="信息一致性"     attrs="{'invisible': [('preliminary_estimate', '=',False)]}">
+        
+        <!-- <label for="manager_evaluate_information" string="管理层所评估的信息"/> -->
+        
+        <field name="manager_evaluate_information" />     
+        
+        
+        <!-- <label for="manager_evaluate_information"  string="CPA注意到的信息"/>  -->
+        
+        <field name="cpa_observe_information" />           
+       
+        </group>          
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="manager_evaluate_information_enough" string="管理层所评估的信息是否包括CPA注意到的信息"     attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>
+        
+        <field name="manager_evaluate_information_enough"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>   
+
+        <separator string="" colspan="4"/>
+        
+        <label for="exceed_period_if" string="询问管理层是否存在超出管理层评估期间,可能导致对持续经营能力产生重大疑虑的事项与情况"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>
+        
+        <field name="exceed_period_if"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>           
+        
+        <separator string="" colspan="4"/>
+        
+        <label for="exceed_period" string="对超出管理层评估期间事项与情况的询问"     attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>
+        
+        <field name="exceed_period"      attrs="{'invisible': [('preliminary_estimate', '=',False)]}"/>   
+        
+        </page>        
+        
+        <page  string="进一步审计程序">      
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="identification" string="CPA是否识别出可能导致对持续经营能力产生重大疑虑的事项或情况"/>
+        
+        <field name="identification" />          
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="identify_information" string="CPA识别出可能导致对持续经营能力产生重大疑虑的事项或情况"    attrs="{'invisible': [('identification', '=',False)]}"/>
+        
+        <field name="identify_information"    attrs="{'invisible': [('identification', '=',False)]}"/>          
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="reply_method"  string="进一步审计程序" />
+        
+        <field name="reply_method"    attrs="{'invisible': [('identification', '=',False)]}"/>      
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="delay_report_if"  string="是否存在严重拖延报告的情况" />
+        
+        <field name="delay_report_if" />              
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="delay_report_reason"  string="严重拖延报告的原因"    attrs="{'invisible': [('delay_report_if', '=',False)]}"/>
+        
+        <field name="delay_report_reason"    attrs="{'invisible': [('delay_report_if', '=',False)]}"/>      
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="delay_report_relativity"  string="严重拖延报告是否涉及对持续经营的评估"     attrs="{'invisible': [('delay_report_if', '=',False)]}"/>
+        
+        <field name="delay_report_relativity"     attrs="{'invisible': [('delay_report_if', '=',False)]}"/>   
+        
+        </page> 
+        
+        <page   string='拟出具报告'>
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="evidence"  string="审计结论" />
+        
+        <field name="evidence" />         
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="draft_report_type"  string="拟出具报告类型" />
+        
+        <field name="draft_report_type" />   
+        
+        </page>     
+        
+        <page  string="与治理层沟通">                        
+        
+        <separator string="" colspan="4"/>        
+        
+        <label for="communicate"  string="与治理层沟通" />
+        
+        <field name="communicate" />        
+        
+        </page>    
+        
+     
+        </notebook>               	        
+	        
+	        </sheet>	
+	        
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>	        
+     	      
+	      </form>    
+      </field>
+     </record>
+   
+
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="persist_operation.action_window">
+      <field name="name">persist_operation</field>
+      <field name="res_model">persist_operation</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+    <!-- actions -->
+    
+    <menuitem name="Persist Operation" id="persist_operation.menu_1" parent="audit.menu_root"
+              action="persist_operation.action_window"/>
+    
+  </data>
+</openerp>

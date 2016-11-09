@@ -9,6 +9,6 @@
 
 1.安装Odoo
 
-2.安装expertise和inside_aduit模块
+2.安装expertise(利用专家的工作),inside_aduit(利用内部审计的工作),persist_operation(持续经营)模块
 
 3.体验一下

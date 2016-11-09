@@ -3,13 +3,13 @@
     'name': "audit",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        审计系统的基础模块,其他模块均依赖于它
+        """,
     'description': """
-        Long description of module's purpose
+        审计系统的基础模块,其他模块均依赖于它
     """,
 
-    'author': "MFS Company",
+    'author': "undee",
     'website': "http://www.mfsystem.com",
 
     # Categories can be used to filter modules in modules listing
@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','mail'],
 
     # always loaded
     'data': [

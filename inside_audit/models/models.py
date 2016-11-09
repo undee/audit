@@ -3,8 +3,8 @@
 from openerp import models, fields, api
 
 class inside_audit(models.Model):
-    _name = 'inside_audit'
-    _inherit = 'mail.thread'    
+    _name = 'inside_audit'      
+    _inherit = 'audit.audit'         
 
     name = fields.Char(require=True,string="名称")
     

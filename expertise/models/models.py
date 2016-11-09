@@ -4,7 +4,7 @@ from openerp import models, fields, api
 
 class expertise(models.Model):
     _name = 'expertise.expertise'
-    _inherit = 'mail.thread'
+    _inherit = 'audit.audit'     
 
 
     name = fields.Char()

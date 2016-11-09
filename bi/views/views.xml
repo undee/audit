@@ -1,0 +1,34 @@
+<openerp>
+  <data>
+    <!-- explicit list view definition -->
+   
+    <record model="ir.ui.view" id="bi.list">
+      <field name="name">fffr list</field>
+      <field name="model">fffr.fffr</field>
+      <field name="priority">99</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+   
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="bi.action_window_fffr">
+      <field name="name">fffr window</field>
+      <field name="res_model">fffr.fffr</field>
+      <field name="view_mode">tree,form</field>
+    </record>  
+
+    <!-- menu categories -->
+    <menuitem name="General  Information" id="general_Information_menu" parent="audit.menu_root"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="Framework For Finandcial  Report" id="bi_fffr_fffr_menu" parent="general_Information_menu"
+              action="bi.action_window_fffr"/>
+              
+  </data>
+</openerp>

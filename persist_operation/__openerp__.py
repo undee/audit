@@ -1,17 +1,22 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "inside audit",
+    'name': "persist_operation",
 
     'summary': """
-        CSA1141号   利用内部审计人员的工作
+        CSA 第1324号  持续经营
         """,
 
     'description': """
-        
+目标
+===========
+
+    *  获取管理层编制财务报表时运用持续经营假设的适当性的证据
+    *  确定是否存在导致对持续经营能力产生重大疑虑的事项或情况
+    
     """,
 
-    'author': "Mfs Company",
-    'website': "http://www.mfsystem.com",
+    'author': "undee",
+    'website': "http://www.mfsystem.org",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
