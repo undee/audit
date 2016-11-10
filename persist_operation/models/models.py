@@ -82,12 +82,13 @@ class persist_operation(models.Model):
     
     @api.depends('cpa_evaluate_period_begin', 'manager_evaluate_period_begin','cpa_evaluate_period_end','manager_evaluate_period_end')
     def _evaluate_period_same(self):    
+        self.evaluate_period_same=True
         if self.cpa_evaluate_period_begin!=self.manager_evaluate_period_begin:
-            evaluate_period_same=False
+            self.evaluate_period_same=False
         if self.cpa_evaluate_period_end!=self.manager_evaluate_period_end:
-            evaluate_period_same=False
+            self.evaluate_period_same=False
      
-            
+     #  to-do       
     @api.depends('manager_evaluate_period_begin', 'manager_evaluate_period_end')
     def _evaluate_period_more_than(self):    
         pass
